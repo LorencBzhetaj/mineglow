@@ -3,9 +3,9 @@ import Image from 'next/image'
 const categories = [
   { label: 'Çanta me Perla',    gridClass: 'sh-1', img: '/images/cat-canta.png' },
   { label: 'Portofola',         gridClass: 'sh-2', img: '/images/cat-portofol.png' },
-  { label: 'Byzylykë',          gridClass: 'sh-3', img: '/images/cat-byzylyk.png' },
-  { label: 'Vathë',             gridClass: 'sh-4', img: '/images/cat-vathe.png' },
-  { label: 'Aksesore Flokësh',  gridClass: 'sh-5', img: '/images/cat-floke.png' },
+  { label: 'Konfeta',          gridClass: 'sh-3', img: '/images/cat-byzylyk.png' },
+  { label: 'Pasqyra',             gridClass: 'sh-4', img: '/images/og-image.png' },
+  { label: 'Pasqyra',  gridClass: 'sh-5', img: '/images/cat-floke.png' },
   { label: 'Dekorime',          gridClass: 'sh-6', img: '/images/cat-dekorime.png' },
 ]
 

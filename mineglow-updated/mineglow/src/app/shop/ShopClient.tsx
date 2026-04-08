@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const WHATSAPP = 'https://wa.me/355688631800'
 
@@ -9,7 +10,7 @@ const products = [
     id: 1,
     name: 'Çantë me Perla të Zeza & Hark',
     desc: 'Çantë elegante me perla të zeza dhe dekorim harku sateni, ideale për mbrëmje.',
-    price: '2,800 ALL',
+    price: '4,500 ALL',
     img: '/images/cat-canta.png',
     category: 'Çanta',
   },
@@ -17,64 +18,82 @@ const products = [
     id: 2,
     name: 'Portofol me Perla të Zeza',
     desc: 'Portofol i punuar me perla të zeza dhe kapëse magnetike të artë.',
-    price: '1,800 ALL',
+    price: '1,500 ALL',
     img: '/images/cat-portofol.png',
     category: 'Portofola',
   },
   {
     id: 3,
-    name: 'Byzylykë & Aksesore me Perla',
-    desc: 'Byzylykë dhe aksesore të punuara me perla natyrale, unike për çdo rast.',
-    price: '900 ALL',
+    name: 'Konfeta  Aksesore me Perla',
+    desc: 'Konfeta dhe aksesore të punuara me perla natyrale, unike për çdo rast.',
+    price: '250 ALL',
     img: '/images/cat-byzylyk.png',
-    category: 'Byzylykë',
+    category: 'Konfeta',
   },
   {
     id: 4,
-    name: 'Vathë & Bizhuteri Perla',
-    desc: 'Vathë elegante dhe bizhuteri me perla të punuara me dorë.',
-    price: '800 ALL',
-    img: '/images/cat-vathe.png',
-    category: 'Vathë',
+    name: 'Pasqyrë me Perla',
+    desc: 'Pasqyrë elegante me perla të punuara me dorë.',
+    price: '2,000 ALL',
+    img: '/images/og-image.png',
+    category: 'Pasqyra',
   },
   {
     id: 5,
     name: 'Çantë Mini me Perla',
     desc: 'Çantë mini artizanale me perla, e dizajnuar me kujdes dhe stil.',
-    price: '3,500 ALL',
+    price: '3,800 ALL',
     img: '/images/hero.png',
     category: 'Çanta',
   },
   {
     id: 6,
-    name: 'Aksesore Flokësh me Perla',
-    desc: 'Koleksion aksesore flokësh me perla — elegante dhe të punuara me dorë.',
-    price: '1,200 ALL',
+    name: 'Tabaka me Perla',
+    desc: 'Tabaka me perla — elegante dhe të punuara me dorë.',
+    price: '4,2800 ALL',
     img: '/images/cat-floke.png',
-    category: 'Aksesore Flokësh',
+    category: 'Tabaka',
   },
   {
     id: 7,
     name: 'Dekorime Shtëpie me Perla',
     desc: 'Sende dekorative unike për shtëpinë — tavë, pasqyra dhe zbukurime me perla.',
-    price: '2,200 ALL',
+    price: '200 ALL',
     img: '/images/cat-dekorime.png',
     category: 'Dekorime',
   },
+ 
   {
     id: 8,
-    name: 'Set Dhuratë — Çantë + Aksesore',
-    desc: 'Set i plotë dhuratë me çantë dhe aksesore matching, i paketuar me kujdes.',
-    price: '3,200 ALL',
-    img: '/images/about-accent.png',
-    category: 'Sets',
+    name: 'Shportë  me Perla',
+    desc: 'Shportë e punuar me perla, perfekte për dekorim , e dizajnuar me elegancë.',
+    price: '4,000 ALL',
+    img: '/images/shporta.png',
+    category: 'Shporta',
+  },
+  {
+    id: 9,
+    name: 'Pasqyra me Perla',
+    desc: 'Pasqyra e punuar me perla, e dizajnuar me kujdes dhe stil.',
+    price: '2,500 ALL',
+    img: '/images/pasqyra.png',
+    category: 'Pasqyra',
+  },
+  {
+    id: 10,
+    name: 'Canta Clutch me Perla',
+    desc: 'Canta elegante clutch me perla, ideale për mbrëmje dhe raste speciale.',
+    price: '2,800 ALL',
+    img: '/images/canta.png',
+    category: 'Çanta',
   },
 ]
 
-const categories = ['Të gjitha', 'Çanta', 'Portofola', 'Byzylykë', 'Vathë', 'Aksesore Flokësh', 'Dekorime', 'Sets']
+const categories = ['Të gjitha', 'Çanta', 'Portofola', 'Byzylykë', 'Vathë', 'Aksesore Flokësh', 'Dekorime', 'Sets', 'Shporta', 'Pasqyra', 'Tabaka', 'Konfeta']
 
 export default function ShopClient() {
   const [active, setActive] = useState('Të gjitha')
+  const router = useRouter()
 
   const filtered = active === 'Të gjitha'
     ? products
@@ -86,14 +105,42 @@ export default function ShopClient() {
       <nav
         aria-label="Kategorite e produkteve"
         style={{
-          display: 'flex',
-          gap: '0.8rem',
-          flexWrap: 'wrap',
-          padding: '2rem 5rem',
-          background: 'var(--soft-white)',
-          borderBottom: '1px solid var(--sand)',
+         display: 'flex',
+  gap: '0.8rem',
+  flexWrap: 'nowrap',
+  alignItems: 'center',
+  padding: '1.2rem 2rem',
+  background: 'var(--soft-white)',
+  borderBottom: '1px solid var(--sand)',
+  overflowX: 'auto',
+  scrollbarWidth: 'none',
         }}
       >
+        <button
+          onClick={() => router.push('/')}
+          style={{
+            padding: '0.5rem 1.6rem',
+            fontSize: '1rem',
+            fontWeight: 600,
+            letterSpacing: '0.05em',
+            background: 'var(--ink)',
+            color: 'var(--gold-light)',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            fontFamily: "'DM Sans', sans-serif",
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            marginRight: '0.8rem',
+          }}
+          aria-label="Kthehu në Kryefaqe"
+        >
+          ‹ Kryefaqja
+        </button>
+        <span style={{ width: '1px', background: 'var(--sand)', alignSelf: 'stretch', margin: '0 0.4rem' }} />
+
+      
         {categories.map((cat) => (
           <button
             key={cat}

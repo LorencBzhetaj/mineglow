@@ -4,7 +4,7 @@ import ShopClient from './ShopClient'
 export const metadata: Metadata = {
   title: 'Dyqani | Çanta & Aksesore me Perla',
   description:
-    'Zbuloni koleksionin e plotë të Mine Glow — çanta, portofola, byzylykë, vathë dhe dekorime shtëpie të punuara me dorë nga perla në Shkodër.',
+    'Zbuloni koleksionin e plotë të Mine Glow — çanta, portofola, byzylykë, vathë dhe dekorime shtëpie të punuara me dorë nga perla.',
   alternates: { canonical: 'https://www.mineglow.al/shop' },
   openGraph: {
     title: 'Dyqani Mine Glow | Çanta & Aksesore me Perla',
