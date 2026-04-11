@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Nëse jemi në shop ose faqe tjetër, logo dhe Kryefaqja shkojnë te /#hero
+  const handleLinkClick = () => setMenuOpen(false)
   const homeHref = pathname === '/' ? '#hero' : '/'
 
   return (
@@ -31,15 +32,17 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <ul className="nav-links">
-        <li><Link href={homeHref}>Kryefaqja</Link></li>
-        <li><Link href={pathname === '/' ? '#sherbimet' : '/#sherbimet'}>Shërbimet</Link></li>
-        <li><Link href={pathname === '/' ? '#pse-ne' : '/#pse-ne'}>Pse Ne</Link></li>
-        <li><Link href="/shop">Dyqani</Link></li>
-        <li><Link href={pathname === '/' ? '#kontakt' : '/#kontakt'}>Kontakt</Link></li>
+
+      <ul className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
+        <li><Link href={homeHref} onClick={handleLinkClick}>Kryefaqja</Link></li>
+        <li><Link href={pathname === '/' ? '#sherbimet' : '/#sherbimet'} onClick={handleLinkClick}>Shërbimet</Link></li>
+        <li><Link href={pathname === '/' ? '#pse-ne' : '/#pse-ne'} onClick={handleLinkClick}>Pse Ne</Link></li>
+        <li><Link href="/shop" onClick={handleLinkClick}>Dyqani</Link></li>
+        <li><Link href={pathname === '/' ? '#kontakt' : '/#kontakt'} onClick={handleLinkClick}>Kontakt</Link></li>
       </ul>
-      <a
-        href="https://instagram.com/minee_glow"
+
+      
+       <a href="https://instagram.com/minee_glow"
         className="nav-ig"
         target="_blank"
         rel="noopener noreferrer"
@@ -47,6 +50,16 @@ export default function Navbar() {
       >
         ↗ Instagram
       </a>
+
+      <button
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Hap menunë"
+      >
+        <span className={menuOpen ? 'open' : ''}></span>
+        <span className={menuOpen ? 'open' : ''}></span>
+        <span className={menuOpen ? 'open' : ''}></span>
+      </button>
     </nav>
   )
 }
