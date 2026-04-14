@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@200;300;400&family=Jost:wght@200;300;400&display=swap');
+@import './components.css';
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #141010;
+  --parchment: #f5efe6;
+  --sand: #e8ddd0;
+  --copper: #b07040;
+  --gold-light: #d4a85a;
+  --warm-mid: #8a6a4a;
+  --soft-white: #faf7f3;
+  --cream: #f9f4ee;
+  --blush: #e8d5c8;
+  --rose: #c9a99a;
+  --deep-rose: #9a6b5e;
+  --dark-rose: #2e1f1a;
+  --mid-rose: #7a5a52;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--soft-white);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 1000; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+::selection { background: var(--gold-light); color: var(--ink); }
+
+/* Scroll animation */
+.r { opacity: 0; transform: translateY(32px); transition: opacity 0.85s ease, transform 0.85s ease; }
+.r.on { opacity: 1; transform: none; }
+.r2 { transition-delay: 0.12s; }
+.r3 { transition-delay: 0.24s; }
+
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes strip-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Hamburger Menu ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--parchment);
+  transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1).open {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger span:nth-child(2).open {
+  opacity: 0;
+}
+.hamburger span:nth-child(3).open {
+  transform: translateY(-7px) rotate(-45deg);
+
+}
